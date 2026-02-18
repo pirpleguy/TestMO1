@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Playwright
+    implementation 'com.microsoft.playwright:playwright:1.40.0'
+
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "file.encoding", "utf-8"
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
